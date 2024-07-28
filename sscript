@@ -1,0 +1,27 @@
+import rasterio
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Load DEM data
+dem_path = 'path_to_your_dem_data.tif'
+with rasterio.open(dem_path) as dem:
+    dem_data = dem.read(1)
+    dem_transform = dem.transform
+
+# Basic DEM processing and stream extraction
+def calculate_flow_direction(dem_data):
+    # Placeholder function for calculating flow direction
+    return np.zeros_like(dem_data)
+
+def calculate_stream_order(flow_direction):
+    # Placeholder function for calculating stream order
+    return np.ones_like(flow_direction)
+
+flow_direction = calculate_flow_direction(dem_data)
+stream_order = calculate_stream_order(flow_direction)
+
+# Plot the stream order
+plt.imshow(stream_order, cmap='viridis')
+plt.colorbar(label='Stream Order')
+plt.title('Stream Order Map')
+plt.show()
